@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.pianonerd77.sandbox.SelectionPage">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of minutes to hide :"
+        android:id="@+id/label"
+        android:textSize="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/duration_hide"
+        android:layout_below="@+id/label"
+        android:layout_alignLeft="@+id/durationOfGame"
+        android:layout_alignStart="@+id/durationOfGame" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Duration of game :"
+        android:id="@+id/durationOfGame"
+        android:textSize="25dp"
+        android:layout_below="@+id/duration_hide"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/durationGame"
+        android:layout_below="@+id/durationOfGame"
+        android:layout_alignLeft="@+id/durationOfGame"
+        android:layout_alignStart="@+id/durationOfGame" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="blah blah blah"
+        android:id="@+id/hideError"
+        android:textSize="25dp"
+        android:layout_below="@+id/durationGame"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/nextButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="66dp" />
+
+
+</RelativeLayout>
