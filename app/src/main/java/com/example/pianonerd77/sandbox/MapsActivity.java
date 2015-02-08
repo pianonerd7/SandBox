@@ -25,9 +25,8 @@ public class MapsActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         setUpMapIfNeeded();
-        markers = new Marker[GameConfig.numPlaying];
         LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        markers[0] = updateMarker(lm.getLastKnownLocation(LocationManager.GPS_PROVIDER));
+//        markers[0] = updateMarker(lm.getLastKnownLocation(LocationManager.GPS_PROVIDER));
     }
 
     @Override
@@ -74,16 +73,14 @@ public class MapsActivity extends FragmentActivity {
         mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
     }
 
-    public void updateMarkers () {
-        for (int i = 0; i<markers.length; i++){
+    public void updateMarkers (int i, LatLng latLng) {
             markers[i].remove();
-//            markers[i] = updateMarker();
-        }
+            markers[i] = updateMarker(latLng);
     }
-    private Marker updateMarker(Location location) {
+    private Marker updateMarker(LatLng latLng) {
         return mMap.addMarker(new MarkerOptions()
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.common_full_open_on_phone))
-                .position(new LatLng(location.getLatitude(), location.getLongitude()))
+                .position(new LatLng(latLng.latitude, latLng.longitude))
                 .anchor(0f, 1f));
     }
 }

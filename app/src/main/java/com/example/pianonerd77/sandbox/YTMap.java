@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -18,7 +19,8 @@ public class YTMap extends ActionBarActivity {
 
     static final LatLng pos = new LatLng(40, -79);
 
-    private GoogleMap googleMap;
+    private static GoogleMap googleMap;
+    private static Marker[] markers = new Marker[4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,18 @@ public class YTMap extends ActionBarActivity {
         }.start();
     }
 
+    public static void updateMarkers (int i, LatLng latLng) {
+        if (markers[i] !=null)
+            markers[i].remove();
+        markers[i] = updateMarker(latLng);
+    }
+    private static Marker updateMarker(LatLng latLng) {
+        return googleMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.common_full_open_on_phone))
+                .position(new LatLng(latLng.latitude, latLng.longitude))
+                .anchor(0f, 1f));
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -87,4 +101,5 @@ public class YTMap extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
